@@ -1,0 +1,16 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	text-align: center;
+}
+
+form {
+	padding-top: 50px;
+	display: inline-block;
+}
+
+#output {
+	padding-top: 50px;
+}
