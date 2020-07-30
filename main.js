@@ -502,13 +502,17 @@ var array = {
 
 window.onload = ready
 
-//Ikke addEventListener siden jeg er en shitter
 function ready() {
-    document.getElementById("btn").onclick = getFlightNumber;
+    document.getElementById("btn").addEventListener("click", getFlightNumber)
+    var input = document.getElementById("input");
+
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("btn").click();
+        }
+    });
 }
-
-
-
 
 function getFlightNumber(){
 
@@ -516,14 +520,14 @@ function getFlightNumber(){
     input = document.getElementById("input").value.toLowerCase()
 
 
-
-    for (var i = 0; i < Object.keys(array.fly).length; i++) {
-        if (input == array.fly[i].reg) {
-            document.getElementById("output").innerHTML = array.fly[i].reg.toUpperCase().toString() + " - " + array.fly[i].skap.toString()
+    for(let item in array.fly) {
+        if (input == array.fly[item].reg) {
+            document.getElementById("output").innerHTML = array.fly[item].reg.toUpperCase() + " - " + array.fly[item].skap
             break
         } else {
-            document.getElementById("output").innerHTML ="Finnes ikke/ Skal ikke ha Grønt kit"
+            document.getElementById("output").innerHTML = "Finnes ikke/ Skal ikke ha Grønt kit"
         }
-
     }
 }
+
+
