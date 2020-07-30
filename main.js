@@ -520,9 +520,6 @@ function getFlightNumber(){
     for (var i = 0; i < Object.keys(array.fly).length; i++) {
         if (input == array.fly[i].reg) {
             document.getElementById("output").innerHTML = array.fly[i].reg.toUpperCase().toString() + " - " + array.fly[i].skap.toString()
-            break
-        } else {
-            document.getElementById("output").innerHTML ="Finnes ikke/ Skal ikke ha Grønt kit"
         }
 
     }
